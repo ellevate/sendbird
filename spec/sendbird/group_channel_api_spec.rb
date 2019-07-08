@@ -138,6 +138,18 @@ describe Sendbird::GroupChannelApi do
       expect(request.body).to eq({})
     end
   end
+  
+  context 'Freeze' do
+    let(:request) do
+      create_dynamic_cassette("#{described_class}/freeze") do
+        described_class.freeze(CHANNEL_URL, user_id: 'sam')
+      end
+    end
+
+    it 'will freeze the users channel' do
+      expect(request.body.dig(:channels, :freeze)).to eq(true)
+    end
+  end
   #
   # context 'Ban View' do
   #   let(:request) do
