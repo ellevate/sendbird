@@ -142,7 +142,7 @@ describe Sendbird::GroupChannelApi do
   context 'Freeze' do
     let(:request) do
       create_dynamic_cassette("#{described_class}/freeze") do
-        described_class.freeze(CHANNEL_URL, user_id: 'sam')
+        described_class.freeze(CHANNEL_URL)
       end
     end
 
