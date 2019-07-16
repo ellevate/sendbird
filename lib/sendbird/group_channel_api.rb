@@ -44,8 +44,8 @@ module Sendbird
         put(path: build_url(channel_url, 'leave'), body: body)
       end
       
-      def freeze(channel_url)
-        put(path: build_url(channel_url, 'freeze'))
+      def join(channel_url, body)
+        put(path: build_url(channel_url, 'join'), body: body)
       end
     end
   end
