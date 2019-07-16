@@ -139,15 +139,15 @@ describe Sendbird::GroupChannelApi do
     end
   end
   
-  context 'Freeze' do
+  context 'Join' do
     let(:request) do
-      create_dynamic_cassette("#{described_class}/freeze") do
-        described_class.freeze(CHANNEL_URL)
+      create_dynamic_cassette("#{described_class}/join") do
+        described_class.join(CHANNEL_URL, user_id: 'sam')
       end
     end
 
-    it 'will freeze the users channel' do
-      expect(request.body.dig(:channels, :freeze)).to eq(true)
+    it 'will make the user join the group' do
+      expect(request.body).to eq({})
     end
   end
   #
